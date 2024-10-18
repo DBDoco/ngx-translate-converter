@@ -33,7 +33,7 @@ def convert_json_to_excel():
     if not json_files:
         return
 
-    data = defaultdict(dict)  # key -> language -> value
+    data = defaultdict(dict)
     try:
         for json_file in json_files:
             lang_code = os.path.splitext(os.path.basename(json_file))[0]
@@ -94,7 +94,7 @@ def convert_excel_to_json():
                 key = row['Key']
                 value = row[lang]
                 if pd.isna(value):
-                    continue  # Skip NaN values
+                    continue  
                 flat_dict[key] = value
 
             nested_dict = unflatten_dict(flat_dict)
@@ -113,20 +113,15 @@ def convert_excel_to_json():
     except Exception as e:
         messagebox.showerror('Error', f"An error occurred: {e}")
 
-# Create the main window
 root = tk.Tk()
 root.title('Language File Converter')
 
-# Set the window size
 root.geometry('400x200')
 
-# Create buttons
 btn_json_to_excel = tk.Button(root, text='Convert JSON to Excel', command=convert_json_to_excel, width=30, height=2)
 btn_excel_to_json = tk.Button(root, text='Convert Excel to JSON', command=convert_excel_to_json, width=30, height=2)
 
-# Place buttons
 btn_json_to_excel.pack(pady=20)
 btn_excel_to_json.pack(pady=10)
 
-# Run the GUI event loop
 root.mainloop()
