@@ -1,4 +1,4 @@
-# ngx-translate-converter
+# Convert ngx-translate .json to Excel file and vice versa
 
 A simple and beautiful UI tool to convert translation JSON files (used by [ngx-translate](https://github.com/ngx-translate/core)) to Excel files and back. This makes it easy for developers and clients to collaborate on translations.
 
